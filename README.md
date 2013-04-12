@@ -15,6 +15,14 @@ To test this you need to download the Impala VM from Cloudera
 
 I created a test.php which loads the phar, and cofigures that client, make sure to change the settings to point to your Impala service.
 
+How to build
+------------
+In the build directory is a package.php file this will phar all of the content of the lib directory.  
+
+From the commandline just run the package.php file and it will create the phar.
+
+The phar file does not do any autoloading of classes, you have to do that in the calling script.  I have an example of what is required to include the phar file and how to autoload the classes in the test.php file.
+
 How to connect (This is from test.php)
 --------------
     // now to access the impala service

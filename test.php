@@ -17,7 +17,7 @@ spl_autoload_register(function ($class) {
 });
 
 // now to access the impala service
-$socket = new TSocket('192.168.2.190', 21000);
+$socket = new TSocket('<impala_host>', 21000); // make sure to enter your impala host ip address
 $transport = new TBufferedTransport($socket);
 $transport->open();
 $protocol = new TBinaryProtocol($transport);

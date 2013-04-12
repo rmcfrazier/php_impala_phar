@@ -17,18 +17,21 @@ I created a test.php which loads the phar, and cofigures that client, make sure 
 
 How to connect (This is from test.php)
 --------------
-// now to access the impala service
-$socket = new TSocket(<impala_host>, 21000);
-$transport = new TBufferedTransport($socket);
-$transport->open();
-$protocol = new TBinaryProtocol($transport);
-$client = new ImpalaServiceClient($protocol);
+    // now to access the impala service
+    $socket = new TSocket(<impala_host>, 21000);
+  
+    $transport = new TBufferedTransport($socket);
+  
+    $transport->open();
+  
+    $protocol = new TBinaryProtocol($transport);
+    $client = new ImpalaServiceClient($protocol);
 
-$query = new Query();
-$query->query = 'SHOW TABLES';
+    $query = new Query();
+    $query->query = 'SHOW TABLES';
 
-$queryHandle = $client->query($query);
+    $queryHandle = $client->query($query);
 
-$result = $client->fetch($queryHandle,false,100);
+    $result = $client->fetch($queryHandle,false,100);
 
-var_dump($result);
+    var_dump($result);

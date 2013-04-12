@@ -14,3 +14,21 @@ To test this you need to download the Impala VM from Cloudera
 - http://www.cloudera.com/content/cloudera-content/cloudera-docs/DemoVMs/3.13.2013/Cloudera-Impala-Demo-VM/Cloudera-Impala-Demo-VM.html
 
 I created a test.php which loads the phar, and cofigures that client, make sure to change the settings to point to your Impala service.
+
+How to connect (This is from test.php)
+--------------
+// now to access the impala service
+$socket = new TSocket(<impala_host>, 21000);
+$transport = new TBufferedTransport($socket);
+$transport->open();
+$protocol = new TBinaryProtocol($transport);
+$client = new ImpalaServiceClient($protocol);
+
+$query = new Query();
+$query->query = 'SHOW TABLES';
+
+$queryHandle = $client->query($query);
+
+$result = $client->fetch($queryHandle,false,100);
+
+var_dump($result);

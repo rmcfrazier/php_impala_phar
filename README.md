@@ -21,7 +21,7 @@ In the build directory is a package.php file this will phar all of the content o
 
 From the commandline just run the package.php file and it will create the phar.
 
-The phar file does not do any autoloading of classes, you have to do that in the calling script.  I have an example of what is required to include the phar file and how to autoload the classes in the test.php file.
+The phar file does not do any autoloading of classes, you have to do that in the calling script.  I have an example of what is required to include the phar file and how to autoload the classes in the test.php file. I used the Zend Frameworks classmap_generator to create the classmap.
 
 How to connect (This is from test.php)
 --------------
